@@ -12,7 +12,10 @@ curl_close($conn);
 return $response;
 }
 $backendlb = getenv("BACKENDLB");
-$backendurl="http://$backendlb/backend.php";
-$backendoutput=httpPost($backendurl);
-echo $backendoutput;
+$baseurl="http://$backendlb/bootstrap.php";
+$response=httpPost($baseurl);
+echo $response;
+$testurl="http://$backendlb/getusers.php";
+$candllabassoc_id=httpPost($testurl);
+echo $candllabassoc_id;
 ?>
